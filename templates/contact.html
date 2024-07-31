@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Jodi Curtis</title>
+</head>
+<body>
+    <header>
+        <h1>JC</h1>
+        <nav>
+          <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('projects') }}">Projects</a></li>
+            <li><a href="https://www.linkedin.com/in/jodi-r-curtis" target="_blank">Linkedin</a></li>
+          </ul>
+        </nav>
+        <a href="{{ url_for('contact') }}">Contact</a>
+    </header>
+    
+    <main>
+        <h1>This is the Contact Page</h1>
+    </main>
+
+    <footer>
+        <p>&copy; My Portfolio</p>
+    </footer>
+</body>
+</html>
