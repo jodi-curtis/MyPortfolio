@@ -1,3 +1,65 @@
-body{
-    background-color: red;
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    background-color: #f8f9fa;
+    position: relative; 
+    font-size: 1.25em;
+}
+
+header h1 {
+    font-size: 4em;
+    margin: 0;
+    font-weight: lighter;
+    letter-spacing: 0.3em;
+}
+
+nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000000; 
+}
+
+.contact-button{
+    background-color: rgb(121, 201, 138);
+    text-decoration: none;
+    color: #000000;
+    padding: 10px;
+    border-radius: 10%;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
 }
