@@ -6,6 +6,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    background: linear-gradient(to left, #2c2a29, #f1f1f1); /* Horizontal gradient from pink to orange */    
 }
 
 header {
@@ -13,7 +14,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 50px;
-    background-color: #f8f9fa;
     position: relative; 
     font-size: 1.25em;
 }
@@ -59,7 +59,6 @@ main {
 }
 
 footer {
-    background-color: #f1f1f1;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
 }
