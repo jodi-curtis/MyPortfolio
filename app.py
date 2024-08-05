@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from grades import grades, highest_grade, lowest_grade
 
 app = Flask(__name__)
 
@@ -14,7 +15,9 @@ def index():
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    highest = highest_grade()
+    lowest = lowest_grade()
+    return render_template("about.html", grades = grades, highest = highest, lowest = lowest)
 
 @app.route("/projects")
 def project_list():
