@@ -22,7 +22,6 @@
     </header>
     
     <main>
-
         <div class="about-container">
             <div class="about-text">
                 <h1>About Me</h1>
@@ -32,37 +31,42 @@
                 <img src="{{ url_for('static', filename='images/jodi_image.jpg') }}" alt="My Image" class="about-profile-img">
             </div>
         </div>
-        <h3>Where it all began?</h3>
-        <p>I believe my love for computers and programming began in Primary School when we worked with Scratch.</p>
-        <section class="animation">
-            <img class="scratch-img" src="{{ url_for('static', filename='images/scratch.jpg') }}" alt="Scratch Animation">
-        </section>
-        <h3>My journey</h3>
-        <p>Throughout secondary school I wasn't too sure what I wanted to do as a career so when it came to picking A Levels and deciding what to do after school was a struggle.
-            I ended up chosing Maths, Physics and Software Systems and achieved A,B & C.
-        </p>
-        <div class="about-container">
-            <div class="about-image-left">
-                <img class="ulster-img" src="{{ url_for('static', filename='images/ulster-logo-white.jpg') }}" alt="Ulster University Logo">
-            </div>
-            <div class="about-text-right">
-                <p>I then headed off to Ulster University to complete a Bachelors Degree in Computer Science where
-                    I completed the following modules:
-                </p>
-                <ul>
-                    {% for grade in grades %}
-                    <li>{{grade.subject}} - {{grade.grade}}%</li>
-                    {% endfor %}
-                </ul>
-                <p>I achieved the best result in the {{highest.subject}} module and the lowest in {{lowest.subject}}.</p>
-
-            </div>
-
+        <div class="about-container-2">
+            <h2>Where it all began?</h2>
+            <p>I believe my love for computers and programming began in Primary School when we worked with Scratch.</p>
+            <section class="animation">
+                <img class="scratch-img" src="{{ url_for('static', filename='images/scratch.jpg') }}" alt="Scratch Animation">
+            </section>
         </div>
-        <p>As part of my degree I completed a year long placement in Mannok as a Placement Business Analyst.
-            I graduated in July 2022 with a First Class Honours and started my graduate role in Mannok as a Full Stack Developer.
-            I work at creating and maintaining all of Mannok's internal Web Applications.
-        </p>
+
+        <div>        
+            <h2>My journey</h2>
+            <p>Throughout secondary school I wasn't too sure what I wanted to do as a career so when it came to picking A Levels and deciding what to do after school I struggled.
+                I ended up chosing Maths, Physics and Software Systems and achieved A,B & C.
+            </p>
+            <div class="about-container">
+                <div class="about-image-left">
+                    <img class="ulster-img" src="{{ url_for('static', filename='images/ulster-logo-white.jpg') }}" alt="Ulster University Logo">
+                </div>
+                <div class="about-text-right">
+                    <p>I then headed off to Ulster University to complete a Bachelors Degree in Computer Science where
+                        I completed the following modules:
+                    </p>
+                    <ul>
+                        {% for grade in grades %}
+                        <li>{{grade.subject}} - {{grade.grade}}%</li>
+                        {% endfor %}
+                    </ul>
+                    <p>I achieved the best result in the {{highest.subject}} module and the lowest in {{lowest.subject}}.</p>
+
+                </div>
+
+            </div>
+            <p>As part of my degree I completed a year long placement in Mannok as a Placement Business Analyst.
+                I graduated in July 2022 with a First Class Honours and started my graduate role in Mannok as a Full Stack Developer.
+                I work at creating and maintaining all of Mannok's internal Web Applications.
+            </p>
+        </div>
 
 
     </main>

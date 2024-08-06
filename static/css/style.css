@@ -17,7 +17,7 @@ header {
     "logo"
     "nav"
     "contact";
-    margin: 10%;
+    margin: 10%;    
     font-size: 1em;
 }
 
@@ -62,7 +62,6 @@ nav ul li a {
 }
 
 main {
-    margin-top: 5%;
     margin-bottom: 10%;
     margin-left: 10%;
     margin-right: 10%;
@@ -76,6 +75,7 @@ footer {
 .container {
     display: flex;
     flex-direction: column;
+    margin-top: 5%;
 }
 
 .text, .image {
@@ -90,7 +90,7 @@ footer {
     margin-bottom: 2%;
 }
 
-.text h1{
+.text h1, .about-text h1{
     font-size: 2.5em;
     color: #79c98a;
 }
@@ -160,6 +160,15 @@ footer {
     flex-direction: column;
 }
 
+.about-container-2 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
 .about-profile-img {
     width: 70%;
     margin: 10% 0%;
@@ -173,7 +182,7 @@ footer {
 }
 
 .ulster-img {
-    max-width: 80%;
+    width: 80%;
     margin: 10% 0%;
     border-radius: 10%;
     object-fit: cover;
@@ -195,21 +204,21 @@ footer {
 }
 
 
-.about-image {
+.about-image, .about-image-left {
     align-items: center;
     padding-bottom: 5%;
 }
 
 .animation{
-    height: 20vh;
+    height: 60%;
     overflow: hidden;
     position: relative;
 }
 
 .scratch-img{
-    height: 50%;
+    height: 100px;
     position: absolute;
-    top: 20%;
+    top: 50%;
     left: 0%;
 }
 
@@ -232,13 +241,20 @@ footer {
         flex-direction: row;
     }
     
-    .about-profile-img, .ulster-img {
+    .about-profile-img {
         margin: 0%;
         position: absolute;
         max-height:100%;
         width: auto;
         max-width: 100%;
     }
+
+    .ulster-img {
+        margin: 0%;
+        position: absolute;
+        width: 100%;
+    }
+    
     
     .about-text, .about-text-right{
         flex: 0 0 70%;
@@ -256,10 +272,6 @@ footer {
         position: relative;
         flex: 0 0 30%;
         padding-bottom: 0;
-    }
-
-    .animation{
-        height: 30vh;
     }
     
 }
@@ -313,4 +325,11 @@ footer {
         height: 20vw;
     }
 
+    .about-profile-img {
+        width: 80%;
+    }
+
+    .ulster-img {
+        width: 80%;
+    }
 }
