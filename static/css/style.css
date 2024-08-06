@@ -78,6 +78,10 @@ footer {
     margin-top: 5%;
 }
 
+.projects-container{
+    margin-top: 5%;
+}
+
 .text, .image {
     flex: 1;
     display: flex;
@@ -90,7 +94,7 @@ footer {
     margin-bottom: 2%;
 }
 
-.text h1, .text-left h1{
+.text h1, .page-title{
     font-size: 2.5em;
     color: #79c98a;
 }
@@ -148,16 +152,42 @@ footer {
     object-fit: cover;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
-    object-fit: cover;
     opacity: 0;
     transform: translateY(-50px);
     animation: fadeIn 1s forwards;
     animation-delay: .6s;
 }
 
-.about-container {
+.about-container, .project-item-conatiner {
     display: flex;
     flex-direction: column;
+}
+
+.project-item-conatiner{
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 2% 5%;
+}
+
+.project-item-conatiner:hover{
+    background-color: #cccccc;
+}
+
+.project-item-conatiner:active {
+    box-shadow: 5px 10px #79c98a;
+    transform: translateY(4px);
+  }
+
+.project-item-conatiner:hover h2{
+    font-size: 2em;
+    transition: font-size 0.3s ease;
+}
+
+.project-item-conatiner .text-left{
+    justify-content: start;
 }
 
 .about-container-2 {
@@ -181,6 +211,15 @@ footer {
     animation-delay: .5s;
 }
 
+.project-img {
+    width: 100%;
+    height: auto;
+    margin: 10% 0%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
 .ulster-img {
     width: 80%;
     margin: 10% 0%;
@@ -197,10 +236,6 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.text-left, .text-right{
-    padding-bottom: 5%;
 }
 
 
@@ -237,7 +272,7 @@ footer {
         font-size: 1.25em;
         margin: 0;
     }
-    .about-container {
+    .about-container, .project-item-conatiner {
         flex-direction: row;
     }
     
@@ -249,6 +284,10 @@ footer {
         max-width: 100%;
     }
 
+    .project-img {
+        margin: 0%;
+    }
+
     .ulster-img {
         margin: 0%;
         position: absolute;
@@ -258,6 +297,10 @@ footer {
     
     .text-left, .text-right{
         flex: 0 0 70%;
+    }
+
+    .project-item-conatiner .text-left{
+        flex: 0 0 60%;
     }
     
     .text-left *{
@@ -272,6 +315,10 @@ footer {
         position: relative;
         flex: 0 0 30%;
         padding-bottom: 0;
+    }
+
+    .project-item-conatiner .image-right{
+        flex: 0 0 40%;
     }
     
 }
