@@ -90,7 +90,7 @@ footer {
     margin-bottom: 2%;
 }
 
-.text h1, .about-text h1{
+.text h1, .text-left h1{
     font-size: 2.5em;
     color: #79c98a;
 }
@@ -192,19 +192,19 @@ footer {
     animation-delay: 1s;
 }
 
-.about-text, .about-image, .about-text-right, .about-image-left {
+.text-left, .image-right, .text-right, .image-left {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.about-text, .about-text-right{
+.text-left, .text-right{
     padding-bottom: 5%;
 }
 
 
-.about-image, .about-image-left {
+.image-right, .image-left {
     align-items: center;
     padding-bottom: 5%;
 }
@@ -256,19 +256,19 @@ footer {
     }
     
     
-    .about-text, .about-text-right{
+    .text-left, .text-right{
         flex: 0 0 70%;
     }
     
-    .about-text *{
+    .text-left *{
         margin-right: 5%;
     }
 
-    .about-text-right *{
+    .text-right *{
         margin-left: 5%;
     }
     
-    .about-image, .about-image-left {
+    .image-right, .image-left {
         position: relative;
         flex: 0 0 30%;
         padding-bottom: 0;
