@@ -42,7 +42,7 @@
                     <p id="project-languages">Developed using:</p>
                     <div class="languages-container clearfix">
                         {% for language in languages %}
-                        <div class="language">
+                        <div class="language" data-hover-text="{{ language.description }}">
                                 <img src="{{ url_for('static', filename='images/' ~ language.logo) }}" alt="{{ language.name }}">
                                 <p class="language-name">{{ language.name }}</p>
                         </div>

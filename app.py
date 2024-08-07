@@ -26,7 +26,7 @@ projects = [
      },
     {'id': 3, 
      'name': 'Mannok Pack Picker App', 
-     'year':'2022', 
+     'year':'2020', 
      'image': 'picker_app.jpg',
      'link': '',
      'languages': [1, 2, 3, 4],
