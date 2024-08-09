@@ -22,7 +22,42 @@
     </header>
     
     <main>
-        <h1>This is the Contact Page</h1>
+        <div id="contact-container">
+            <div id="contact-message">
+                <h1 class="page-title">Lets Talk!</h1>
+                <p>Whether you're interested in working together, have a project in mind, or just want to say hello, feel free to contact me using the form on this page. I'll get back to you as soon as I can!</p>
+            </div>
+            <div id="contact-form-section">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label class="input-label" for="name">First Name:</label>
+                        <input type="text" id="fname" placeholder="First Name..." required><br>
+                    </div>
+    
+                    <div class="form-group">
+                        <label class="input-label" for="name">Surname:</label>
+                        <input type="text" id="sname" placeholder="Surname..." required><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="input-label" for="email">Email:</label>
+                        <input type="email" id="email" placeholder="Email..." required><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="input-label" for="name">Subject:</label>
+                        <input type="text" id="subject" placeholder="Subject..." required><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="input-label" for="name">Message:</label>
+                        <textarea type="text" id="message" required></textarea><br>
+                    </div>
+
+                    <input id="submit-contact" type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
     </main>
 
     <footer>
