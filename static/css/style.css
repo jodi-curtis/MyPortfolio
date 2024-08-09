@@ -429,6 +429,15 @@ footer {
     transform: translateY(4px);
 }
 
+#form-submitted-div{
+    color: #226679;
+    margin: 1em 0;
+    padding: 1em;
+    border: 2px solid #226679;
+    background-color: #b4efff;
+    border-radius: 10px;
+}
+
 
 @media (min-width: 600px) {
     header {

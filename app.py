@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 from grades import grades, highest_grade, lowest_grade
 from languages import languages
 
@@ -49,12 +49,25 @@ def about():
 def project_list():
     return render_template("projects.html", projects=projects)
 
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
-
 @app.route('/project/<int:project_id>')
 def project_details(project_id):
     project = next((p for p in projects if p['id'] == project_id), None)
     project_languages = [l for l in languages if l['key'] in project['languages']]
     return render_template('project_detail.html', project=project, languages=project_languages)
+
+@app.route("/contact", methods=["GET","POST"])
+def contact():
+    if request.method == 'POST':
+        fname = request.form.get('fname')
+        sname = request.form.get('sname')
+        email = request.form.get('email')
+        subject = request.form.get('subject')
+
+        return redirect(url_for('contact', success=True, fname=fname, sname=sname, email=email, subject=subject))
+    
+    success = request.args.get('success')
+    fname = request.args.get('fname')
+    sname = request.args.get('sname')
+    email = request.args.get('email')
+    subject = request.args.get('subject')
+    return render_template("contact.html", success=success, fname=fname, sname=sname, email=email, subject=subject)
