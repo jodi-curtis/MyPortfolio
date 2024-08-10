@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for
 from grades import grades, highest_grade, lowest_grade
 from languages import languages
 from projects import projects
+from comments import comments
+from datetime import datetime
 
 
 app = Flask(__name__)
@@ -11,6 +13,10 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+
+
+
+
 # About Page
 @app.route("/about")
 def about():
@@ -19,13 +25,21 @@ def about():
     lowest = lowest_grade()
     return render_template("about.html", grades = grades, highest = highest, lowest = lowest)
 
+
+
+
+
 # Projects Page
 @app.route("/projects")
 def project_list():
     return render_template("projects.html", projects=projects)
 
+
+
+
+
 # Project Detail Page
-@app.route('/project/<int:project_id>')
+@app.route('/project/<int:project_id>', methods=["GET","POST"])
 def project_details(project_id):
     # Get selected project by ID
     project = next((p for p in projects if p.id == project_id), None)
@@ -34,7 +48,34 @@ def project_details(project_id):
         project_languages = [l for l in languages if l['key'] in project.languages]
     else:
         project_languages = []
-    return render_template('project_detail.html', project=project, languages=project_languages)
+
+    # On Form submit
+    if request.method == "POST":
+        # Get data entered in form
+        name=request.form['name']
+        comment=request.form['comment']
+        # Get current date and time
+        submission_date_time = datetime.now().strftime("%d/%m/%Y %H:%M")
+
+        # Add new comment to comments list
+        comments.append({
+            "project": project_id,
+            "name": name,
+            "comment": comment,
+            "datetime": submission_date_time
+        })
+
+        # Reload page
+        return redirect(url_for('project_details', project_id=project_id) + "?new_comment=true")
+    
+    # Filter through comments related to project
+    project_comments = [c for c in comments if c["project"] == project_id]
+
+    return render_template('project_detail.html', project=project, languages=project_languages, comments=project_comments)
+
+
+
+
 
 # Contact Page
 @app.route("/contact", methods=["GET","POST"])

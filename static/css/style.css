@@ -398,17 +398,17 @@ footer {
     margin-top: 2em;
 }
   
-#contact-form .form-group {
+.form-group {
     display: flex;
     flex-direction: column;
     margin-bottom: 2em;
 }
 
-#contact-form .input-label {
+.form-group .input-label {
     margin-bottom: 0.75em;
 }
 
-#contact-form input, textarea{
+.form-group input, textarea{
     padding: 0.5em;
     border-radius: 5px;
 }
@@ -417,11 +417,15 @@ footer {
     width: 100%;
     font-size: 1.25em;
     background-color: #79c98a;
+    border-radius: 10px;
+    padding: 0.5em;
+    border: solid 1px #79c98a;
 }
   
 #contact-form #submit-contact:hover {
     background-color: #ffffff;
     color: #79c98a;
+    border: solid 1px #79c98a
 }
   
 #contact-form #submit-contact:active {
@@ -436,6 +440,55 @@ footer {
     border: 2px solid #226679;
     background-color: #b4efff;
     border-radius: 10px;
+}
+
+#comments{
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 10px;
+    margin-top: 10em;
+    padding: 2em;
+}
+
+.comment{
+    margin-bottom: 4em;
+    background-color: #a3a3a3;
+    color: #000000;
+    border-radius: 10px;
+    padding: 1em;
+}
+
+.comment #commenter{
+    font-weight: bold;
+}
+
+.comment p:first-child {
+    text-align: right;
+    font-size: 0.75em;
+    margin-top: 0%;
+}
+
+#comment-form{
+    display: flex;
+    flex-direction: column;
+}
+
+#submit-comment{
+    font-size: 1em;
+    background-color: #79c98a;
+    padding: 1em;
+    border-radius: 10px;
+    border: solid 1px #79c98a;
+}
+  
+#submit-comment:hover {
+    background-color: #ffffff;
+    color: #79c98a;
+}
+  
+#submit-comment:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 
@@ -506,6 +559,11 @@ footer {
 
     .language{
         font-size: 1.25em;
+    }
+
+    #submit-comment{
+        font-size: 1.25em;
+        align-self: flex-end;
     }
 }
 
@@ -599,20 +657,20 @@ footer {
         margin-top: 0em;
     }
       
-    #contact-form .form-group {
+    .form-group {
         align-items: center;
         margin-bottom: 3em;
         flex-direction: row;
     }
     
-    #contact-form .input-label {
+    .form-group .input-label {
         width: 150px;
         text-align: right;
         padding-right: 1em;
         margin-bottom: 0em;
     }
       
-    #contact-form input, textarea{
+    .form-group input, textarea{
         width: 50%;
         font-size: 1em;
     }

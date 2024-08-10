@@ -52,6 +52,33 @@
                 <hr>
                 <p id="project-year">Developed in {{ project.year }}</p>
                 <hr>
+                <div id="comments">
+                    <h2>Comments:</h2>
+                    {% if comments %}
+                        {% for comment in comments %}
+                        <div class="comment">
+                            <p>{{ comment.datetime }}</p>
+                            <p id="commenter">{{ comment.name }}:</p>
+                            <p>{{ comment.comment }}</p>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                    <p>No comments yet. Be the first to leave a comment!</p>
+                    {% endif %}
+                    <form id="comment-form" method="POST">
+                        <div class="form-group">
+                            <label class="input-label" for="name">Your Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="input-label" for="comment">Your Comment:</label>
+                            <textarea id="comment" name="comment" rows="4" required></textarea>
+                        </div>
+                
+                        <input id="submit-comment" type="submit" value="Submit Comment">
+                    </form>
+                </div>
             {% else %}
                 <h2>Project Not Found</h2>
                 <p>Sorry, the project you are looking for does not exist</p>
@@ -62,7 +89,6 @@
     <footer>
         <p>&copy; My Portfolio</p>
     </footer>
-
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/projectdetail.js') }}"></script>
 </body>
 </html>
