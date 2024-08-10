@@ -1,94 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Detail - Jodi Curtis</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="https://kit.fontawesome.com/fc6f6498bf.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <header>
-        <h1>JC</h1>
-        <nav>
-          <ul>
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{ url_for('project_list') }}">Projects</a></li>
-            <li><a href="https://www.linkedin.com/in/jodi-r-curtis" target="_blank"><i class="fa-brands fa-linkedin fa-lg fa-bounce"style="--fa-animation-iteration-count: 1;"></i></a></li>
-          </ul>
-        </nav>
-        <a href="{{ url_for('contact') }}" class="contact-button">Contact</a>
-    </header>
-    
-    <main>
-        <div class="projects-container">
-            <a href="{{ url_for('project_list') }}" id="go-back"><i class="fa-solid fa-arrow-left"></i> Back to Projects</a>
-            {% if project %}
-                <div class="project-detail-header">
-                    <h2 class="page-title">{{ project.name }}</h2>
-                    {% if project.link %}
-                    <p id="project-link"><a href="{{ project.link }}" target="_blank">Visit Website</a></p>
-                    {% endif %}
-                </div>
+{% extends "layout.html" %}
+{% block title %}
+    {% if project %}
+        {{ project.name }}
+    {% else %}
+        Not found
+    {% endif %}  
+{% endblock%}
+{% block main %}
+    <div class="projects-container">
+        <a href="{{ url_for('project_list') }}" id="go-back"><i class="fa-solid fa-arrow-left"></i> Back to Projects</a>
+        {% if project %}
+            <div class="project-detail-header">
+                <h2 class="page-title">{{ project.name }}</h2>
+                {% if project.link %}
+                <p id="project-link"><a href="{{ project.link }}" target="_blank">Visit Website</a></p>
+                {% endif %}
+            </div>
 
-                <div id="image-project">
-                    <img src="{{ url_for('static', filename='images/' ~ project.image) }}" alt="My Image" class="project-detail-img">
-                </div>
+            <div id="image-project">
+                <img src="{{ url_for('static', filename='images/' ~ project.image) }}" alt="My Image" class="project-detail-img">
+            </div>
 
-                <p id="project-description">{{ project.description | replace('\n', '<br>') | safe }}</p>
+            <p id="project-description">{{ project.description | replace('\n', '<br>') | safe }}</p>
 
-                <div class="developed-using">
-                    <p id="project-languages">Developed using:</p>
-                    <div class="languages-container clearfix">
-                        {% for language in languages %}
-                        <div class="language" data-hover-text="{{ language.description }}">
-                                <img src="{{ url_for('static', filename='images/' ~ language.logo) }}" alt="{{ language.name }}">
-                                <p class="language-name">{{ language.name }}</p>
-                        </div>
-                        {% endfor %}
+            <div class="developed-using">
+                <p id="project-languages">Developed using:</p>
+                <div class="languages-container clearfix">
+                    {% for language in languages %}
+                    <div class="language" data-hover-text="{{ language.description }}">
+                            <img src="{{ url_for('static', filename='images/' ~ language.logo) }}" alt="{{ language.name }}">
+                            <p class="language-name">{{ language.name }}</p>
                     </div>
+                    {% endfor %}
                 </div>
-                <hr>
-                <p id="project-year">Developed in {{ project.year }}</p>
-                <hr>
-                <div id="comments">
-                    <h2>Comments:</h2>
-                    {% if comments %}
-                        {% for comment in comments %}
-                        <div class="comment">
-                            <p>{{ comment.datetime }}</p>
-                            <p id="commenter">{{ comment.name }}:</p>
-                            <p>{{ comment.comment }}</p>
-                        </div>
-                        {% endfor %}
-                    {% else %}
-                    <p>No comments yet. Be the first to leave a comment!</p>
-                    {% endif %}
-                    <form id="comment-form" method="POST">
-                        <div class="form-group">
-                            <label class="input-label" for="name">Your Name:</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
+            </div>
+            <hr>
+            <p id="project-year">Developed in {{ project.year }}</p>
+            <hr>
+            <div id="comments">
+                <h2>Comments:</h2>
+                {% if comments %}
+                    {% for comment in comments %}
+                    <div class="comment">
+                        <p>{{ comment.datetime }}</p>
+                        <p id="commenter">{{ comment.name }}:</p>
+                        <p>{{ comment.comment }}</p>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                <p>No comments yet. Be the first to leave a comment!</p>
+                {% endif %}
+                <form id="comment-form" method="POST">
+                    <div class="form-group">
+                        <label class="input-label" for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="input-label" for="comment">Your Comment:</label>
-                            <textarea id="comment" name="comment" rows="4" required></textarea>
-                        </div>
-                
-                        <input id="submit-comment" type="submit" value="Submit Comment">
-                    </form>
-                </div>
-            {% else %}
-                <h2>Project Not Found</h2>
-                <p>Sorry, the project you are looking for does not exist</p>
-            {% endif %}    
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; My Portfolio</p>
-    </footer>
+                    <div class="form-group">
+                        <label class="input-label" for="comment">Your Comment:</label>
+                        <textarea id="comment" name="comment" rows="4" required></textarea>
+                    </div>
+            
+                    <input id="submit-comment" type="submit" value="Submit Comment">
+                </form>
+            </div>
+        {% else %}
+            <h2>Project Not Found</h2>
+            <p>Sorry, the project you are looking for does not exist</p>
+        {% endif %}    
+    </div>
+{% endblock%}
+{% block scripts %}
     <script src="{{ url_for('static', filename='js/projectdetail.js') }}"></script>
-</body>
-</html>
+{% endblock%}

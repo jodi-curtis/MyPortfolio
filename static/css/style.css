@@ -49,9 +49,20 @@ nav ul li a {
     color: #ffffff; 
 }
 
+nav ul li a:hover{
+    color: #8a79c9;
+}
+
+nav ul li a.active{
+    color: #e1daff;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 .contact-button{
     grid-area: contact;
     background-color: #79c98a;
+    border: solid 1px #79c98a;
     text-decoration: none;
     color: #000000;
     border-radius: 10px;
@@ -59,6 +70,16 @@ nav ul li a {
     margin: auto;
     padding: 2%;
     text-align: center;
+}
+
+.contact-button:hover {
+    background-color: #ffffff;
+    color: #79c98a;
+}
+  
+.contact-button:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 main {
@@ -282,7 +303,7 @@ footer {
 }
 
 #project-link a:active{
-    box-shadow: 0px 10px #838383;
+    box-shadow: 0px 5px #666;
     transform: translateY(4px);
 }
 
@@ -446,7 +467,7 @@ footer {
 }
 
 #comments{
-    background-color: #ffffff;
+    background-color: #e1daff;
     color: #000000;
     border-radius: 10px;
     margin-top: 10em;
@@ -455,10 +476,11 @@ footer {
 
 .comment{
     margin-bottom: 4em;
-    background-color: #a3a3a3;
+    background-color: #ffffff;
     color: #000000;
     border-radius: 10px;
     padding: 1em;
+    border: solid 2px #8a79c9;
 }
 
 .comment #commenter{

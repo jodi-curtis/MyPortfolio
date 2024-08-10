@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - Jodi Curtis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://kit.fontawesome.com/fc6f6498bf.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>JC</h1>
+        <nav>
+          <ul>
+            <li><a href="{{ url_for('index') }}" class="{% if request.endpoint == 'index' %}active{% endif %}">Home</a></li>
+            <li><a href="{{ url_for('about') }}" class="{% if request.endpoint == 'about' %}active{% endif %}">About</a></li>
+            <li><a href="{{ url_for('project_list') }}" class="{% if request.endpoint == 'project_list' %}active{% endif %}">Projects</a></li>
+            <li><a href="https://www.linkedin.com/in/jodi-r-curtis" target="_blank"><i class="fa-brands fa-linkedin fa-lg fa-bounce"style="--fa-animation-iteration-count: 1;"></i></a></li>
+          </ul>
+        </nav>
+        <a href="{{ url_for('contact') }}" class="contact-button">Contact Me</a>
+    </header>
+    
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; My Portfolio</p>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,49 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Jodi Curtis</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="https://kit.fontawesome.com/fc6f6498bf.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <header>
-        <h1>JC</h1>
-        <nav>
-          <ul>
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{ url_for('project_list') }}">Projects</a></li>
-            <li><a href="https://www.linkedin.com/in/jodi-r-curtis" target="_blank"><i class="fa-brands fa-linkedin fa-lg fa-bounce"style="--fa-animation-iteration-count: 1;"></i></a></li>
-          </ul>
-        </nav>
-        <a href="{{ url_for('contact') }}" class="contact-button">Contact</a>
-    </header>
-    
-    <main>
-        <div class="projects-container">
-            <h1 class="page-title">My Projects</h1>            
-            {% for project in projects %}
-                <a href="{{ url_for('project_details', project_id=project.id) }}" class="project-item-container">
-                    <div class="text-left">
-                        <h2>{{ project.name }}</h2>
-                        <p>{{ project.brief }}</p>
-                    </div>
-                    <div class="image-right">
-                        <img src="{{ url_for('static', filename='images/' ~ project.image) }}" alt="My Image" class="project-img">
-                    </div>
-
-                </a>
-            {% endfor %}
-        </div>
-        
-        
-    </main>
-
-    <footer>
-        <p>&copy; My Portfolio</p>
-    </footer>
+{% extends "layout.html" %}
+{% block title %}Projects{% endblock%}
+{% block main %}
+    <div class="projects-container">
+        <h1 class="page-title">My Projects</h1>            
+        {% for project in projects %}
+            <a href="{{ url_for('project_details', project_id=project.id) }}" class="project-item-container">
+                <div class="text-left">
+                    <h2>{{ project.name }}</h2>
+                    <p>{{ project.brief }}</p>
+                </div>
+                <div class="image-right">
+                    <img src="{{ url_for('static', filename='images/' ~ project.image) }}" alt="My Image" class="project-img">
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock%}
+{% block scripts %}
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
-</html>
+{% endblock%}
