@@ -25,7 +25,7 @@
         <div class="projects-container">
             <h1 class="page-title">My Projects</h1>            
             {% for project in projects %}
-                <a href="{{ url_for('project_details', project_id=project.id) }}" class="project-item-conatiner">
+                <a href="{{ url_for('project_details', project_id=project.id) }}" class="project-item-container">
                     <div class="text-left">
                         <h2>{{ project.name }}</h2>
                         <p>{{ project.brief }}</p>

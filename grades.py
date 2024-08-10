@@ -12,7 +12,12 @@ grades = [
     {"subject": "Algorithms and Data Structures", "grade": 73},
     {"subject": "Web Application Development", "grade": 90},
     {"subject": "Mobile Application Development", "grade": 82},
-    {"subject": "Professional Issues", "grade": 66}
+    {"subject": "Professional Issues", "grade": 66},
+    {"subject": "Cyber Security", "grade": 62},
+    {"subject": "Network Operating Systems", "grade": 70},
+    {"subject": "Mobile Technology", "grade": 82},
+    {"subject": "Intelligent Robotics", "grade": 95},
+    {"subject": "Final Year Project", "grade": 66}
 ]
 
 # Function to find highest scoring grade

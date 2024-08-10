@@ -39,7 +39,7 @@
             </section>
         </div>
 
-        <div>        
+        <div class="about-container-3">        
             <h2>My journey</h2>
             <p>Throughout secondary school I wasn't too sure what I wanted to do as a career so when it came to picking A Levels and deciding what to do after school I struggled.
                 I ended up chosing Maths, Physics and Software Systems and achieved A,B & C.
@@ -52,9 +52,12 @@
                     <p>I then headed off to Ulster University to complete a Bachelors Degree in Computer Science where
                         I completed the following modules:
                     </p>
-                    <ul>
+                    <ul class="grades-list">
                         {% for grade in grades %}
-                        <li>{{grade.subject}} - {{grade.grade}}%</li>
+                        <li class="grade-item">
+                            <span class="subject">{{grade.subject}}</span>
+                            <span class="grade">{{grade.grade}}%</span>
+                        </li>
                         {% endfor %}
                     </ul>
                     <p>I achieved the best result in the {{highest.subject}} module and the lowest in {{lowest.subject}}.</p>
@@ -62,10 +65,21 @@
                 </div>
 
             </div>
-            <p>As part of my degree I completed a year long placement in Mannok as a Placement Business Analyst.
-                I graduated in July 2022 with a First Class Honours and started my graduate role in Mannok as a Full Stack Developer.
-                I work at creating and maintaining all of Mannok's internal Web Applications.
-            </p>
+            <div class="about-container">
+                <div class="text-left">
+                    <p>I graduated in July 2022 with a First Class Honours.
+                        As part of my degree I completed a year long placement in Mannok as a Placement Business Analyst. During my year here 
+                        I developed a <a id="picker-link" href="{{ url_for('project_details', project_id=3) }}">Paperless Picking Application</a> for use in their Packaging division.
+                        After graduating I started my graduate role in Mannok as a Full Stack Developer.
+                        I work at creating and maintaining all of Mannok's internal Web Applications.
+                        As part of my Graduate Program I am completing the UCD Full Stack Software Development course.
+                    </p>
+                </div>
+                <div class="image-right">
+                    <img class="ucd-img" src="{{ url_for('static', filename='images/ucd-logo.jpg') }}" alt="UCD Logo">
+                </div>
+            </div>
+
         </div>
 
 

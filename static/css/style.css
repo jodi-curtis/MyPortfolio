@@ -65,6 +65,7 @@ main {
     margin-bottom: 10%;
     margin-left: 10%;
     margin-right: 10%;
+    line-height: 1.5em;
 }
 
 footer {
@@ -75,7 +76,6 @@ footer {
 .container {
     display: flex;
     flex-direction: column;
-    margin-top: 5%;
 }
 
 .projects-container{
@@ -111,6 +111,7 @@ footer {
 
 #learn-more:hover{
     text-decoration: underline;
+    color: #ffffff;
 }
 
 #go-back:hover{
@@ -166,12 +167,12 @@ footer {
     animation-delay: .6s;
 }
 
-.about-container, .project-item-conatiner {
+.about-container, .project-item-container {
     display: flex;
     flex-direction: column;
 }
 
-.project-item-conatiner{
+.project-item-container{
     background-color: #ffffff;
     color: #000000;
     text-decoration: none;
@@ -180,21 +181,22 @@ footer {
     padding: 2% 5%;
 }
 
-.project-item-conatiner:hover{
-    background-color: #cccccc;
+.project-item-container:hover{
+    background-color: #747474;
+    color: #ffffff;
 }
 
-.project-item-conatiner:active {
+.project-item-container:active {
     box-shadow: 5px 10px #79c98a;
     transform: translateY(4px);
 }
 
-.project-item-conatiner:hover h2{
+.project-item-container:hover h2{
     font-size: 2em;
     transition: font-size 0.3s ease;
 }
 
-.project-item-conatiner .text-left{
+.project-item-container .text-left{
     justify-content: start;
 }
 
@@ -204,6 +206,7 @@ footer {
     flex-direction: column;
     justify-content: center;
 }
+
 
 .about-profile-img {
     width: 70%;
@@ -268,12 +271,13 @@ footer {
     text-decoration: none;
     color: #ffffff;
     background-color: #8a79c9;
+    border: solid 1px #8a79c9;
     padding: 0.6em;
     border-radius: 10px;
 }
 
 #project-link a:hover{
-    color: #000000;
+    color: #8a79c9;
     background-color: #c9bff0;
 }
 
@@ -282,7 +286,7 @@ footer {
     transform: translateY(4px);
 }
 
-.ulster-img {
+.ulster-img, .ucd-img {
     width: 80%;
     margin: 10% 0%;
     border-radius: 10px;
@@ -425,7 +429,6 @@ footer {
 #contact-form #submit-contact:hover {
     background-color: #ffffff;
     color: #79c98a;
-    border: solid 1px #79c98a
 }
   
 #contact-form #submit-contact:active {
@@ -491,6 +494,39 @@ footer {
     transform: translateY(4px);
 }
 
+.grades-list {
+    display: grid;
+    gap: 1em;
+    list-style-type: none;
+    padding: 0;
+}
+
+.grade-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5em;
+}
+
+.subject {
+    flex-basis: 70%;
+    text-align: left;
+}
+
+.grade {
+    flex-basis: 30%;
+    text-align: right;
+    font-weight: bold;
+}
+
+#picker-link{
+    text-decoration: none;
+    font-weight: bold;
+    color: #8a79c9;
+    font-size: 1.25em;
+    font-style: italic;
+}
+
 
 @media (min-width: 600px) {
     header {
@@ -505,7 +541,7 @@ footer {
         margin: 0;
     }
 
-    .about-container, .project-item-conatiner {
+    .about-container, .project-item-container {
         flex-direction: row;
     }
     
@@ -531,7 +567,7 @@ footer {
         flex: 0 0 70%;
     }
 
-    .project-item-conatiner .text-left{
+    .project-item-container .text-left{
         flex: 0 0 60%;
     }
     
@@ -549,7 +585,7 @@ footer {
         padding-bottom: 0;
     }
 
-    .project-item-conatiner .image-right{
+    .project-item-container .image-right{
         flex: 0 0 40%;
     }
 
@@ -678,6 +714,10 @@ footer {
     #contact-form #submit-contact{
         margin-top: 2em;
         font-weight: bold;
+    }
+
+    .grades-list {
+        grid-template-columns: 1fr 1fr;
     }
       
 }
