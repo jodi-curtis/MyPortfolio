@@ -31,6 +31,7 @@ header h1 {
 
 nav {
     grid-area: nav;
+    letter-spacing: 0.1em;
 }
 
 nav ul {
@@ -200,6 +201,9 @@ footer {
     border-radius: 10px;
     margin-bottom: 5%;
     padding: 2% 5%;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeIn 1s forwards;
 }
 
 .project-item-container:hover{
@@ -255,19 +259,6 @@ footer {
     align-items: center;
     flex-wrap: wrap;
     margin-bottom: 2em;
-}
-
-#image-project{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 3em;
-}
-
-.project-detail-img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
 }
 
 #project-description, #project-languages{
@@ -549,6 +540,49 @@ footer {
     font-style: italic;
 }
 
+.slider-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.project-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.project-image {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.project-image img {
+    width: 100%;
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
 
 @media (min-width: 600px) {
     header {
@@ -609,10 +643,6 @@ footer {
 
     .project-item-container .image-right{
         flex: 0 0 40%;
-    }
-
-    .project-detail-img {
-        width: 90%;
     }
 
     .language{
@@ -679,10 +709,6 @@ footer {
 
     .ulster-img {
         width: 80%;
-    }
-    
-    .project-detail-img {
-        width: 70%;
     }
 
     #project-description, #project-year, #project-link, #project-languages{

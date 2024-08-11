@@ -1,10 +1,11 @@
 # Project Class
 class Project:
-    def __init__(self, id: int, name: str, year: str, image: str, link: str, languages: list[int], brief: str, description: str):
+    def __init__(self, id: int, name: str, year: str, image: str, images: list[str], link: str, languages: list[int], brief: str, description: str):
         self.id = id
         self.name = name
         self.year = year
         self.image = image
+        self.images = images
         self.link = link
         self.languages = languages
         self.brief = brief
@@ -17,6 +18,7 @@ projects = [
         name='Jazz Fanzz',
         year='2024',
         image='jazz_fanzz.jpg',
+        images=['jazz_fanzz.jpg'],
         link='https://jodi-curtis.github.io/',
         languages=[1, 2],
         brief="A website to learn more about the Jazz music genre.",
@@ -29,6 +31,7 @@ projects = [
         name='Maths Playground',
         year='2024',
         image='maths_playground.jpg',
+        images=['maths_playground.jpg'],
         link='https://jodi-curtis.github.io/maths-playground/',
         languages=[1, 2, 3],
         brief='An interactive website for kids to learn about and test their knowledge on basic Maths concepts.',
@@ -41,6 +44,7 @@ projects = [
         name='Mannok Pack Picker App',
         year='2020',
         image='picker_app.jpg',
+        images=['picker_app.jpg'],
         link='',
         languages=[1, 2, 3, 4],
         brief='Web Application designed for use on a tablet to assist with the picking of loads.',
@@ -53,6 +57,7 @@ projects = [
         name='Recycling Assistant',
         year='2022',
         image='recycling_assistant.jpg',
+        images=['recycling_assistant.jpg'],
         link='',
         languages=[5],
         brief='Mobile App which provides information to make recycling easier.',

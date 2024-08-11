@@ -17,8 +17,16 @@
                 {% endif %}
             </div>
 
-            <div id="image-project">
-                <img src="{{ url_for('static', filename='images/' ~ project.image) }}" alt="My Image" class="project-detail-img">
+            <div class="slider-container">
+                <div class="project-images">
+                    {% for image_url in project.images %}
+                    <div class="project-image">
+                        <img src="{{ url_for('static', filename='images/' ~ image_url) }}" alt="Project Image">
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
             </div>
 
             <p id="project-description">{{ project.description | replace('\n', '<br>') | safe }}</p>
