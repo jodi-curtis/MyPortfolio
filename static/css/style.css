@@ -1,3 +1,4 @@
+/**********************LAYOUT**********************/
 html, body {
     height: 100%;
     margin: 0;
@@ -11,6 +12,7 @@ body {
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
+/*Header*/
 header {
     display: grid;
     grid-template-areas:
@@ -83,6 +85,7 @@ nav ul li a.active{
     transform: translateY(4px);
 }
 
+/*Main*/
 main {
     margin-bottom: 10%;
     margin-left: 10%;
@@ -90,20 +93,72 @@ main {
     line-height: 1.5em;
 }
 
+/*Footer*/
 footer {
     padding: 5px;
     text-align: center;
 }
 
-.container {
+
+
+
+
+
+
+
+
+
+/**********************MULTI PAGE**********************/
+@keyframes fadeIn{
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*Containers for content*/
+.container, .about-container, .project-item-container {
     display: flex;
     flex-direction: column;
 }
 
-.projects-container{
-    margin-top: 5%;
+/*Links to different pages*/
+#learn-more, #go-back{
+    text-decoration: none;
+    color: #a3a3a3;
+    margin-left: auto;
 }
 
+/*To format layout of images and text*/
+.text-left, .image-right, .text-right, .image-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.image-right, .image-left {
+    align-items: center;
+    padding-bottom: 5%;
+}
+
+/*Title on each page*/
+.page-title{
+    font-size: 2em;
+    color: #79c98a;
+}
+
+
+
+
+
+
+
+
+
+
+/**********************HOME**********************/
+/*Text and image containers*/
 .text, .image {
     flex: 1;
     display: flex;
@@ -116,27 +171,13 @@ footer {
     margin-bottom: 2%;
 }
 
-.text h1, .page-title{
-    font-size: 2em;
-    color: #79c98a;
-}
-
 .text h3{
     letter-spacing: 1em;
 }
 
-#learn-more, #go-back{
-    text-decoration: none;
-    color: #a3a3a3;
-    margin-left: auto;
-}
-
+/*Link to about page*/
 #learn-more:hover{
     text-decoration: underline;
-    color: #ffffff;
-}
-
-#go-back:hover{
     color: #ffffff;
 }
 
@@ -144,10 +185,7 @@ footer {
     transform: translateX(10px);
 }
 
-#go-back:hover i{
-    transform: translateX(-10px);
-}
-
+/*Image container*/
 .image {
     position: relative;
     align-items: center;
@@ -155,6 +193,7 @@ footer {
     margin-bottom: 30%;
 }
 
+/*Bigger Image*/
 .background-img {
     width: 100%;
     height: auto;
@@ -165,13 +204,7 @@ footer {
     animation-delay: .3s;
 }
 
-@keyframes fadeIn{
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
+/*Circular profile image*/
 .profile-img {
     position: absolute;
     bottom: -30%;
@@ -189,11 +222,118 @@ footer {
     animation-delay: .6s;
 }
 
-.about-container, .project-item-container {
-    display: flex;
-    flex-direction: column;
+
+
+
+
+
+
+
+
+
+/**********************ABOUT**********************/
+/*Circular profile image*/
+.about-profile-img {
+    width: 70%;
+    margin: 10% 0%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeIn 1s forwards;
+    animation-delay: .5s;
 }
 
+/*Conatiner  for Scratch animation*/
+.scratch-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*Animation*/
+.animation{
+    height: 60%;
+    overflow: hidden;
+    position: relative;
+}
+
+/*Scratch Image*/
+.scratch-img{
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+}
+
+/*Images in my journey section*/
+.ulster-img, .ucd-img {
+    width: 80%;
+    margin: 10% 0%;
+    border-radius: 10px;
+    object-fit: cover;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeIn 1s forwards;
+    animation-delay: 1s;
+}
+
+/*List of University Grades*/
+.grades-list {
+    display: grid;
+    gap: 1em;
+    list-style-type: none;
+    padding: 0;
+}
+
+/*Individual grade*/
+.grade-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5em;
+}
+
+/*Subject Name*/
+.subject {
+    flex-basis: 70%;
+    text-align: left;
+}
+
+/*Grade*/
+.grade {
+    flex-basis: 30%;
+    text-align: right;
+    font-weight: bold;
+}
+
+/*Link to Picker App Project Detail Page*/
+#picker-link{
+    text-decoration: none;
+    font-weight: bold;
+    color: #8a79c9;
+    font-size: 1.25em;
+    font-style: italic;
+}
+
+
+
+
+
+
+
+
+
+
+/**********************PROJECTS**********************/
+/*Conatiner holding all project*/
+.projects-container{
+    margin-top: 5%;
+}
+
+/*Individual project*/
 .project-item-container{
     background-color: #ffffff;
     color: #000000;
@@ -225,26 +365,7 @@ footer {
     justify-content: start;
 }
 
-.about-container-2 {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-.about-profile-img {
-    width: 70%;
-    margin: 10% 0%;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    object-fit: cover;
-    opacity: 0;
-    transform: translateY(-50px);
-    animation: fadeIn 1s forwards;
-    animation-delay: .5s;
-}
-
+/*Project Image*/
 .project-img {
     width: 100%;
     height: auto;
@@ -253,6 +374,26 @@ footer {
     object-fit: cover;
 }
 
+
+
+
+
+
+
+
+
+
+/**********************PROJECT DETAIL**********************/
+/*Link back to project page*/
+#go-back:hover{
+    color: #ffffff;
+}
+
+#go-back:hover i{
+    transform: translateX(-10px);
+}
+
+/*Project header line*/
 .project-detail-header {
     display: flex;
     justify-content: space-between;
@@ -261,19 +402,7 @@ footer {
     margin-bottom: 2em;
 }
 
-#project-description, #project-languages{
-    font-size: 1em;
-    line-height: 1.25em;
-    margin-bottom: 3em;
-}
-
-#project-year{
-    font-size: 1em;
-    line-height: 1.25em;
-    text-align: center;
-    letter-spacing: 0.5em;
-}
-
+/*Link to website*/
 #project-link{
     font-size: 1em;
     line-height: 1.25em;
@@ -298,42 +427,53 @@ footer {
     transform: translateY(4px);
 }
 
-.ulster-img, .ucd-img {
-    width: 80%;
-    margin: 10% 0%;
-    border-radius: 10px;
-    object-fit: cover;
-    opacity: 0;
-    transform: translateY(-50px);
-    animation: fadeIn 1s forwards;
-    animation-delay: 1s;
-}
-
-.text-left, .image-right, .text-right, .image-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.image-right, .image-left {
-    align-items: center;
-    padding-bottom: 5%;
-}
-
-.animation{
-    height: 60%;
-    overflow: hidden;
+/*Container for image slider*/
+.slider-container {
     position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
-.scratch-img{
-    height: 100px;
+.project-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+/*Individual image*/
+.project-image {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.project-image img {
+    width: 100%;
+    display: block;
+}
+
+/*Previous and Next Buttons*/
+.prev, .next {
     position: absolute;
     top: 50%;
-    left: 0%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
 }
 
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/*Developed using what languages section*/
 .developed-using{
     background-color: #adadad57;
     border-radius: 10px;
@@ -341,10 +481,16 @@ footer {
     margin-bottom: 3em;
 }
 
-.clearfix::after {
+.languages-container::after {
     content: "";
     clear: both;
     display: table;
+}
+
+#project-description, #project-languages{
+    font-size: 1em;
+    line-height: 1.25em;
+    margin-bottom: 3em;
 }
 
 .language{
@@ -355,6 +501,7 @@ footer {
     position: relative;
 }
 
+/*When hover on language image show description*/
 .language::after {
     content: attr(data-hover-text);
     position: absolute;
@@ -377,86 +524,21 @@ footer {
     opacity: 1;
 }
 
+/*Language image*/
 .language img{
     width:50px;
     height:auto;
 }
 
-#contact-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5%;
+/*Year developed text*/
+#project-year{
+    font-size: 1em;
+    line-height: 1.25em;
+    text-align: center;
+    letter-spacing: 0.5em;
 }
 
-#contact-message{
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    flex: 0 0 50%;
-}
-
-#contact-message *{
-    margin-right: 0%;
-}
-
-#contact-form-section{
-    display: flex;
-    justify-content: center;
-    flex: 0 0 50%;
-}
-
-#contact-form {
-    padding: 2em;
-    background-color: #ffffff;
-    color: #000000;
-    border-radius: 10px;
-    width: 100%;
-    margin-top: 2em;
-}
-  
-.form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2em;
-}
-
-.form-group .input-label {
-    margin-bottom: 0.75em;
-}
-
-.form-group input, textarea{
-    padding: 0.5em;
-    border-radius: 5px;
-}
-    
-#contact-form #submit-contact{
-    width: 100%;
-    font-size: 1.25em;
-    background-color: #79c98a;
-    border-radius: 10px;
-    padding: 0.5em;
-    border: solid 1px #79c98a;
-}
-  
-#contact-form #submit-contact:hover {
-    background-color: #ffffff;
-    color: #79c98a;
-}
-  
-#contact-form #submit-contact:active {
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
-
-#form-submitted-div{
-    color: #226679;
-    margin: 1em 0;
-    padding: 1em;
-    border: 2px solid #226679;
-    background-color: #b4efff;
-    border-radius: 10px;
-}
-
+/*Comment Section*/
 #comments{
     background-color: #e1daff;
     color: #000000;
@@ -465,6 +547,7 @@ footer {
     padding: 2em;
 }
 
+/*Individual Comment*/
 .comment{
     margin-bottom: 4em;
     background-color: #ffffff;
@@ -484,11 +567,13 @@ footer {
     margin-top: 0%;
 }
 
+/*Comment Form*/
 #comment-form{
     display: flex;
     flex-direction: column;
 }
 
+/*Submit Comment Button*/
 #submit-comment{
     font-size: 1em;
     background-color: #79c98a;
@@ -507,84 +592,114 @@ footer {
     transform: translateY(4px);
 }
 
-.grades-list {
-    display: grid;
-    gap: 1em;
-    list-style-type: none;
-    padding: 0;
-}
 
-.grade-item {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 0.5em;
-}
 
-.subject {
-    flex-basis: 70%;
-    text-align: left;
-}
 
-.grade {
-    flex-basis: 30%;
-    text-align: right;
-    font-weight: bold;
-}
 
-#picker-link{
-    text-decoration: none;
-    font-weight: bold;
-    color: #8a79c9;
-    font-size: 1.25em;
-    font-style: italic;
-}
 
-.slider-container {
-    position: relative;
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+
+
+
+
+/**********************CONTACT**********************/
+/*Form submitted message*/
+#form-submitted-div{
+    color: #226679;
+    margin: 1em 0;
+    padding: 1em;
+    border: 2px solid #226679;
+    background-color: #b4efff;
     border-radius: 10px;
 }
 
-.project-images {
+/*Contact container*/
+#contact-container {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    flex-direction: column;
+    margin-top: 5%;
+}
+
+/*Contact intro message*/
+#contact-message{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    flex: 0 0 50%;
+}
+
+#contact-message *{
+    margin-right: 0%;
+}
+
+#contact-form-section{
+    display: flex;
+    justify-content: center;
+    flex: 0 0 50%;
+}
+
+/*Contact Form*/
+#contact-form {
+    padding: 2em;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 10px;
     width: 100%;
+    margin-top: 2em;
+}
+  
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
 }
 
-.project-image {
-    min-width: 100%;
-    box-sizing: border-box;
+/*Contact Form input label*/
+.form-group .input-label {
+    margin-bottom: 0.75em;
 }
 
-.project-image img {
+/*Contact Form inputs*/
+.form-group input, textarea{
+    padding: 0.5em;
+    border-radius: 5px;
+}
+    
+/*Submit button*/
+#contact-form #submit-contact{
     width: 100%;
-    display: block;
+    font-size: 1.25em;
+    background-color: #79c98a;
+    border-radius: 10px;
+    padding: 0.5em;
+    border: solid 1px #79c98a;
 }
-
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
+  
+#contact-form #submit-contact:hover {
+    background-color: #ffffff;
+    color: #79c98a;
 }
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
+  
+#contact-form #submit-contact:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/**********************STYLING FOR TABLET**********************/
 @media (min-width: 600px) {
+    /**********************LAYOUT**********************/
     header {
         grid-template-areas:
         "logo contact"
@@ -597,36 +712,15 @@ footer {
         margin: 0;
     }
 
+    /**********************MULTI PAGE**********************/
     .about-container, .project-item-container {
         flex-direction: row;
     }
-    
-    .about-profile-img {
-        margin: 0%;
-        position: absolute;
-        max-height:100%;
-        width: auto;
-        max-width: 100%;
-    }
 
-    .project-img {
-        margin: 0%;
-    }
-
-    .ulster-img {
-        margin: 0%;
-        position: absolute;
-        width: 100%;
-    }
-    
     .text-left, .text-right{
         flex: 0 0 70%;
     }
 
-    .project-item-container .text-left{
-        flex: 0 0 60%;
-    }
-    
     .text-left *{
         margin-right: 5%;
     }
@@ -641,10 +735,35 @@ footer {
         padding-bottom: 0;
     }
 
+    /**********************ABOUT**********************/
+    .about-profile-img {
+        margin: 0%;
+        position: absolute;
+        max-height:100%;
+        width: auto;
+        max-width: 100%;
+    }
+
+    .ulster-img {
+        margin: 0%;
+        position: absolute;
+        width: 100%;
+    }
+
+    /**********************PROJECTS**********************/
+    .project-img {
+        margin: 0%;
+    }
+
+    .project-item-container .text-left{
+        flex: 0 0 60%;
+    }
+
     .project-item-container .image-right{
         flex: 0 0 40%;
     }
 
+    /**********************PROJECT DETAIL**********************/
     .language{
         font-size: 1.25em;
     }
@@ -655,7 +774,9 @@ footer {
     }
 }
 
+/**********************STYLING FOR PC**********************/
 @media (min-width: 1100px) {
+    /**********************LAYOUT**********************/
     header {
         grid-template-areas:
         "logo nav contact";
@@ -676,10 +797,16 @@ footer {
         width: auto;
     }
     
+    /**********************MULTI PAGE**********************/
     .container {
         flex-direction: row;
     }
-    
+
+    .page-title{
+        font-size: 2.5em;
+    }
+
+    /**********************HOME**********************/
     .text h1, .text h3, .text p {
         margin-right: 10%;
     }
@@ -687,22 +814,24 @@ footer {
     .text h1{
         font-size: 4em;
     }
-    
-    #learn-more{
-        margin-right: 10%;
-    }
-    
+
     .image {
         margin-top: auto;
         margin-bottom: auto;
     }
-        
+
     .profile-img {
         bottom: -15%;
         width: 20vw;
         height: 20vw;
     }
+    
+    #learn-more{
+        margin-right: 10%;
+    }
 
+        
+    /**********************ABOUT**********************/
     .about-profile-img {
         width: 80%;
     }
@@ -711,6 +840,12 @@ footer {
         width: 80%;
     }
 
+    .grades-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    /**********************PROJECT DETAIL**********************/
     #project-description, #project-year, #project-link, #project-languages{
         font-size: 1.25em;
     }
@@ -723,10 +858,9 @@ footer {
         width:75px;
     }
 
-    .text h1, .page-title{
-        font-size: 2.5em;
-    }
 
+
+    /**********************CONTACT**********************/
     #contact-container {
         flex-direction: row;
     }
@@ -762,10 +896,5 @@ footer {
     #contact-form #submit-contact{
         margin-top: 2em;
         font-weight: bold;
-    }
-
-    .grades-list {
-        grid-template-columns: 1fr 1fr;
-    }
-      
+    }      
 }

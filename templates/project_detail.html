@@ -11,7 +11,7 @@
         <a href="{{ url_for('project_list') }}" id="go-back"><i class="fa-solid fa-arrow-left"></i> Back to Projects</a>
         {% if project %}
             <div class="project-detail-header">
-                <h2 class="page-title">{{ project.name }}</h2>
+                <h1 class="page-title">{{ project.name }}</h1>
                 {% if project.link %}
                 <p id="project-link"><a href="{{ project.link }}" target="_blank">Visit Website</a></p>
                 {% endif %}
@@ -33,7 +33,7 @@
 
             <div class="developed-using">
                 <p id="project-languages">Developed using:</p>
-                <div class="languages-container clearfix">
+                <div class="languages-container">
                     {% for language in languages %}
                     <div class="language" data-hover-text="{{ language.description }}">
                             <img src="{{ url_for('static', filename='images/' ~ language.logo) }}" alt="{{ language.name }}">
