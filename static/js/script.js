@@ -1,3 +1,4 @@
+/* Javascript to set height of container as height of screen - the header */
 function adjustContainerHeight() {
     const header = document.querySelector('header');
     const container = document.querySelector('.container');

@@ -1,3 +1,4 @@
+/* Javascript to ensure data is input in contact form */
 document.getElementById('fname').oninvalid = function(event) {
     event.target.setCustomValidity('Please enter your First Name.');
 };
