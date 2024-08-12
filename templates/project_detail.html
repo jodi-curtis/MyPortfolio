@@ -7,77 +7,102 @@
     {% endif %}  
 {% endblock%}
 {% block main %}
+    <!--Project Container-->
     <div class="projects-container">
+        <!--Link back to project page-->
         <a href="{{ url_for('project_list') }}" id="go-back"><i class="fa-solid fa-arrow-left"></i> Back to Projects</a>
+
         {% if project %}
             <div class="project-detail-header">
+                <!--Project title-->
                 <h1 class="page-title">{{ project.name }}</h1>
                 {% if project.link %}
-                <p id="project-link"><a href="{{ project.link }}" target="_blank">Visit Website</a></p>
+                    <!--Link to project-->
+                    <p id="project-link"><a href="{{ project.link }}" target="_blank">Visit Website</a></p>
                 {% endif %}
             </div>
 
+            <!--Div for image slider-->
             <div class="slider-container">
                 <div class="project-images">
                     {% for image_url in project.images %}
-                    <div class="project-image">
-                        <img src="{{ url_for('static', filename='images/' ~ image_url) }}" alt="Project Image">
-                    </div>
+                        <!--Project images-->
+                        <div class="project-image">
+                            <img src="{{ url_for('static', filename='images/' ~ image_url) }}" alt="Project Image">
+                        </div>
                     {% endfor %}
                 </div>
+                <!--Previous slide button-->
                 <button class="prev">❮</button>
+                <!--Next slide button-->
                 <button class="next">❯</button>
             </div>
 
+            <!--Project Description-->
             <p id="project-description">{{ project.description | replace('\n', '<br>') | safe }}</p>
 
+            <!--Div for languages used-->
             <div class="developed-using">
                 <p id="project-languages">Developed using:</p>
                 <div class="languages-container">
                     {% for language in languages %}
-                    <div class="language" data-hover-text="{{ language.description }}">
+                        <!--Div for each language-->
+                        <div class="language" data-hover-text="{{ language.description }}">
+                            <!--Language logo-->
                             <img src="{{ url_for('static', filename='images/' ~ language.logo) }}" alt="{{ language.name }}">
                             <p class="language-name">{{ language.name }}</p>
-                    </div>
+                        </div>
                     {% endfor %}
                 </div>
             </div>
+
+            <!--Year of development text-->
             <hr>
             <p id="project-year">Developed in {{ project.year }}</p>
             <hr>
+
+            <!--Comments div-->
             <div id="comments">
                 <h2>Comments:</h2>
                 {% if comments %}
                     {% for comment in comments %}
-                    <div class="comment">
-                        <p>{{ comment.datetime }}</p>
-                        <p id="commenter">{{ comment.name }}:</p>
-                        <p>{{ comment.comment }}</p>
-                    </div>
+                        <!--div for each comment-->
+                        <div class="comment">
+                            <p>{{ comment.datetime }}</p>
+                            <p id="commenter">{{ comment.name }}:</p>
+                            <p>{{ comment.comment }}</p>
+                        </div>
                     {% endfor %}
                 {% else %}
-                <p>No comments yet. Be the first to leave a comment!</p>
+                    <p>No comments yet. Be the first to leave a comment!</p>
                 {% endif %}
+
+                <!--Comment form-->
                 <form id="comment-form" method="POST">
+                    <!--Name-->
                     <div class="form-group">
                         <label class="input-label" for="name">Your Name:</label>
                         <input type="text" id="name" name="name" required>
                     </div>
 
+                    <!--Comment-->
                     <div class="form-group">
                         <label class="input-label" for="comment">Your Comment:</label>
                         <textarea id="comment" name="comment" rows="4" required></textarea>
                     </div>
-            
+
+                    <!--Submit Comment Button-->
                     <input id="submit-comment" type="submit" value="Submit Comment">
                 </form>
             </div>
         {% else %}
+            <!--Message shown if project is not found-->
             <h2>Project Not Found</h2>
             <p>Sorry, the project you are looking for does not exist</p>
         {% endif %}    
     </div>
 {% endblock%}
 {% block scripts %}
+    <!--Link to Javascript-->
     <script src="{{ url_for('static', filename='js/projectdetail.js') }}"></script>
 {% endblock%}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--Head with block tag for page title-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,10 @@
     <script src="https://kit.fontawesome.com/fc6f6498bf.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!--Header-->
     <header>
         <h1>JC</h1>
+        <!--Navigation to main pages-->
         <nav>
           <ul>
             <li><a href="{{ url_for('index') }}" class="{% if request.endpoint == 'index' %}active{% endif %}">Home</a></li>
@@ -21,14 +24,17 @@
         <a href="{{ url_for('contact') }}" class="contact-button">Contact Me</a>
     </header>
     
+    <!--Main with block tag for main content of page-->
     <main>
         {% block main %}{% endblock %}
     </main>
-
+    
+    <!--Footer-->
     <footer>
         <p>&copy; My Portfolio</p>
     </footer>
 
+    <!--Block tag for Javascript links-->
     {% block scripts %}{% endblock %}
 </body>
 </html>

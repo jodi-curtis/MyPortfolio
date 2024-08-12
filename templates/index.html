@@ -2,18 +2,22 @@
 {% block title %}Home{% endblock%}
 {% block main %}
     <div class="container">
+        <!--Div to display welcome message on home page-->
         <div class="text">
             <h1 class="page-title">Jodi Curtis</h1>
             <h3>Web Developer</h3>
             <p>Hi! Welcome to my portfolio! My name is Jodi Curtis. I am a 24 year old Web Developer from Co Fermanagh, Northern Ireland. Feel free to explore some of my past projects, but first you can learn a little more about me..</p>
+            <!--Link to about page-->
             <a href="{{ url_for('about') }}" id="learn-more">Learn more ...<i class="fa-solid fa-arrow-right"></i></a>
         </div>
+        <!--Images-->
         <div class="image">
-            <img src="{{ url_for('static', filename='images/coding.jpg') }}" alt="My Image" class="background-img">
-            <img src="{{ url_for('static', filename='images/jodi_image.jpg') }}" alt="My Image" class="profile-img">
+            <img src="{{ url_for('static', filename='images/coding.jpg') }}" alt="Home page background image" class="background-img">
+            <img src="{{ url_for('static', filename='images/jodi_image.jpg') }}" alt="Home page profile image" class="profile-img">
         </div>
     </div>
 {% endblock%}
 {% block scripts %}
+    <!--Link to Javascript-->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 {% endblock%}
