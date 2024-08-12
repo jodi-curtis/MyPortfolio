@@ -430,7 +430,7 @@ footer {
 /*Container for image slider*/
 .slider-container {
     position: relative;
-    width: 80%;
+    width: 100%;
     margin: auto;
     overflow: hidden;
     border-radius: 10px;
@@ -780,6 +780,10 @@ footer {
     }
 
     /**********************PROJECT DETAIL**********************/
+    .slider-container {
+        width: 80%;
+    }
+
     .language{
         font-size: 1.25em;
     }
