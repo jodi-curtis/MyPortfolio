@@ -1,4 +1,4 @@
-# List of grades
+# List of grades (Subject and grade)
 grades = [
     {"subject": "Mathmatics for Computing", "grade": 98},
     {"subject": "Software Development 1", "grade": 94},

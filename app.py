@@ -15,8 +15,6 @@ def index():
 
 
 
-
-
 # About Page
 @app.route("/about")
 def about():
@@ -27,14 +25,10 @@ def about():
 
 
 
-
-
 # Projects Page
 @app.route("/projects")
 def project_list():
     return render_template("projects.html", projects=projects)
-
-
 
 
 
@@ -52,8 +46,8 @@ def project_details(project_id):
     # On Form submit
     if request.method == "POST":
         # Get data entered in form
-        name=request.form['name']
-        comment=request.form['comment']
+        name = request.form['name']
+        comment = request.form['comment']
         # Get current date and time
         submission_date_time = datetime.now().strftime("%d/%m/%Y %H:%M")
 
@@ -72,8 +66,6 @@ def project_details(project_id):
     project_comments = [c for c in comments if c["project"] == project_id]
 
     return render_template('project_detail.html', project=project, languages=project_languages, comments=project_comments)
-
-
 
 
 

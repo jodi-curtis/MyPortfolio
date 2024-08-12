@@ -1,3 +1,4 @@
+# List of Comments (related project, name, comment and date time of comment)
 comments = [
     {"project": 1, "name": "Sarah Jane", "comment":"Really informative website. Love the colour scheme and layout", "datetime":"01/07/2024 14:30"},
     {"project": 3, "name": "Joe Bloggs", "comment":"Seems like a great solution to replace paper pick lists, great for the environment!", "datetime":"14/07/2024 11:14"},
