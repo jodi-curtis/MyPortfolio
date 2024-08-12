@@ -44,7 +44,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 5px;
 }
 
 nav ul li a {
@@ -71,7 +71,7 @@ nav ul li a.active{
     border-radius: 10px;
     width: 100%;
     margin: auto;
-    padding: 2%;
+    padding: 2% 0%;
     text-align: center;
 }
 
@@ -718,6 +718,14 @@ footer {
         position: relative; 
         font-size: 1.25em;
         margin: 0;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    .contact-button{
+        padding: 2%;
     }
 
     /**********************MULTI PAGE**********************/
